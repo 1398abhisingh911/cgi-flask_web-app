@@ -1,0 +1,25 @@
+- hosts: master
+  tasks:
+  - copy:
+      dest: /root/
+      src: mysql.yml
+  - copy:
+      dest: /root/
+      src: wordpress.yml
+  - copy:
+      dest: /root/
+      src: expose.yml
+
+  - shell: kubectl create -f /root/mysql.yml
+  - shell: kubectl create -f /root/wordpress.yml
+  - shell: kubectl create -f /root/expose.yml
+  - shell: kubectl get svc
+    register: svc
+  - debug: 
+      var: svc
+  - shell: kubectl describe svc mylb1
+    register: svc2
+  - debug: 
+      var: svc2
+  
+

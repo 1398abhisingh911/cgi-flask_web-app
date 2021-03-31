@@ -1,0 +1,127 @@
+- hosts: master
+  tasks:
+  - package:
+      name: docker
+      state: present
+  - service:
+      name: docker
+      state: started
+      enabled: yes
+  - copy:
+      dest: /etc/yum.repos.d/
+      src: /root/cluster/kubernetes.repo
+  - shell: yum repolist -y
+  - shell: yum install -y kubelet kubeadm kubectl --disableexcludes=kubernetes
+  - service:
+      name: kubelet
+      state: started
+      enabled: yes
+  - copy:
+      dest: /etc/docker/
+      src: /root/cluster/daemon.json
+  - service:
+      name: docker
+      state: restarted
+  - shell: kubeadm config images pull
+  - package:
+      name: iproute-tc
+      state: present
+  - shell: |
+           cat <<EOF | sudo tee /etc/sysctl.d/k8s.conf
+           net.bridge.bridge-nf-call-ip6tables=1
+           net.bridge.bridge-nf-call-iptables=1
+           EOF
+  - shell: sudo sysctl --system
+  - shell: kubeadm init --pod-network-cidr=10.240.0.0/16 --ignore-preflight-errors=NumCPU --ignore-preflight-errors=Mem
+  - shell: mkdir -p $HOME/.kube
+  - shell: sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
+  - shell: sudo chown $(id -u):$(id -g) $HOME/.kube/config
+  - shell: kubectl get nodes
+    register: x
+  - debug:
+      var: x
+  - shell: kubeadm token create --print-join-command
+    register: y
+  - debug:
+      var: y.stdout_lines
+  - shell: kubeadm token create --print-join-command
+    register: join_cmd
+  - set_fact: 
+      join_command: "{{ join_cmd.stdout_lines[0] }}"
+      
+- hosts: slave
+  tasks:
+  - package:
+      name: docker
+      state: present
+  - service:
+      name: docker
+      state: started
+      enabled: yes
+  - copy:
+      dest: /etc/yum.repos.d/
+      src: /root/cluster/kubernetes.repo
+  - shell: yum repolist -y
+  - shell: yum install -y kubelet kubeadm kubectl --disableexcludes=kubernetes
+  - service:
+      name: kubelet
+      state: started
+      enabled: yes
+  - copy:
+      dest: /etc/docker/
+      src: /root/cluster/daemon.json
+  - service:
+      name: docker
+      state: restarted
+  - shell: kubeadm config images pull
+  - package:
+      name: iproute-tc
+      state: present
+  - shell: |
+           cat <<EOF | sudo tee /etc/sysctl.d/k8s.conf
+           net.bridge.bridge-nf-call-ip6tables=1
+           net.bridge.bridge-nf-call-iptables=1
+           EOF
+  - shell: sudo sysctl --system
+  - shell: "{{ hostvars['master'].join_command }}"
+
+
+- hosts: master
+  tasks:
+  - shell:  kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel.yml
+  - shell: kubectl get nodes
+    register: z
+  - debug:
+      var: z
+  - copy:
+      dest: /var/run/flannel/
+      src: /root/cluster/subnet.env
+      
+  - shell: kubectl delete pod -l app=flannel -n kube-system
+  - shell: kubectl get nodes
+    register: zz
+  - debug:
+      var: zz
+
+  - copy:
+      dest: /root/
+      src: mysql.yml
+  - copy:
+      dest: /root/
+      src: wordpress.yml
+  - copy:
+      dest: /root/
+      src: expose.yml
+
+  - shell: kubectl create -f /root/mysql.yml
+  - shell: kubectl create -f /root/wordpress.yml
+  - shell: kubectl create -f /root/expose.yml
+  - shell: kubectl get svc
+    register: svc
+  - debug: 
+      var: svc
+  - shell: kubectl describe svc mylb1
+    register: svc2
+  - debug: 
+      var: svc2
+  

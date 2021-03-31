@@ -1,0 +1,22 @@
+- hosts: slave
+  tasks:
+  - copy: 
+      src: /jdk-8u171-linux-x64.rpm
+      dest: /root
+  - copy:
+      src: /hadoop-1.2.1-1.x86_64.rpm
+      dest: /root
+  - shell: "rpm -i jdk-8u171-linux-x64.rpm"
+  - shell: "rpm -i hadoop-1.2.1-1.x86_64.rpm --force"
+  - file:
+      path: /df1
+      state: directory
+  - copy:
+      src: /slave/hdfs-site.xml
+      dest: /etc/hadoop
+  - copy:
+      src: /slave/core-site.xml
+      dest: /etc/hadoop
+  - shell: "hadoop-daemon.sh start datanode"
+   
+      

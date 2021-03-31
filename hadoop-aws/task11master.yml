@@ -1,0 +1,23 @@
+- hosts: master
+  tasks:
+  - copy: 
+      src: /jdk-8u171-linux-x64.rpm
+      dest: /root
+  - copy:
+      src: /hadoop-1.2.1-1.x86_64.rpm
+      dest: /root
+  - shell: "rpm -i jdk-8u171-linux-x64.rpm"
+  - shell: "rpm -i hadoop-1.2.1-1.x86_64.rpm --force"
+  - file:
+      path: /nn
+      state: directory
+  - template:
+      src: /master/hdfs-site.xml
+      dest: /etc/hadoop
+  - template:
+      src: /master/core-site.xml
+      dest: /etc/hadoop
+  - shell: "echo Y | hadoop namenode -format"
+  - shell: "hadoop-daemon.sh start namenode"
+   
+      
