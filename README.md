@@ -24,6 +24,8 @@ To run this project, do the following:
 2.Copy cgi-bin folder files to /var/www/cgi-bin/.
 3.Disable firewalld.
 4.Open the folder in VS code and launch the webapp with liveserver plugin.
+5.To use ML page, install required libraries and do login to your account using aws configure command.
+6.To use ANSIBLE page, copy the folders at the location specified in the yaml file.
 ```
 <p align="center">
   <img src="/ss/ss1.png" width="350" >
