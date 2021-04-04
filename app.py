@@ -1,6 +1,12 @@
 from flask import Flask
 from flask import render_template
 from flask import request
+import cv2
+import boto3
+from playsound import playsound
+from datetime import datetime
+
+import json
 
 
 app=Flask("MyWebMenu")
@@ -36,6 +42,183 @@ def ansible():
 def linux():
     data=render_template("linux.html")
     return data
+
+@app.route("/ml")
+def ml():
+    data=render_template("ml.html")
+    return data
+
+
+@app.route('/rekognition', methods=['POST'])
+def rekognition():
+    
+    picname= request.form.get("picname")
+    upname=request.form.get("uplname")
+    cap=cv2.VideoCapture(0)
+    ret,pic=cap.read()
+    cv2.imwrite(picname,pic)
+    cap.release()
+    region="ap-south-1"
+    bucket="myworklw"
+    s3=boto3.resource("s3")
+    s3.Bucket(bucket).upload_file(picname,upname)
+    rek=boto3.client('rekognition',region)
+    response=rek.detect_labels(
+        Image={
+       
+        'S3Object': {
+            'Bucket': bucket,
+            'Name': upname,
+            
+        }
+    },
+    MaxLabels=5,
+    MinConfidence=90,
+    )
+    y = json.dumps(response)
+    return(y)
+
+
+@app.route('/facedetection', methods=['POST'])
+def facedetection():
+    picname= request.form.get("picname")
+    upname=request.form.get("uplname")
+    cap=cv2.VideoCapture(0)
+    ret,pic=cap.read()
+    cv2.imwrite(picname,pic)
+    cap.release()
+    region="ap-south-1"
+    bucket="myworklw"
+    s3=boto3.resource("s3")
+    s3.Bucket(bucket).upload_file(picname,upname)
+    rek=boto3.client('rekognition',region)
+    response=rek.detect_faces(
+        Image={
+       
+        'S3Object': {
+            'Bucket': bucket,
+            'Name': upname,
+            
+        }
+    },
+    Attributes=[
+        'ALL',
+    ]
+    )
+    y = json.dumps(response)
+    return(y)
+
+
+@app.route('/contentmoderation', methods=['POST'])
+def contentmoderation():
+    f = request.files['file']
+    picname=f.filename
+    upname=request.form.get("uplname")
+    region="ap-south-1"
+    bucket="myworklw"
+    s3=boto3.resource("s3")
+    s3.Bucket(bucket).upload_file(picname,upname)
+    rek=boto3.client('rekognition',region)
+    
+    response = rek.detect_moderation_labels(
+    Image={
+       
+        'S3Object': {
+            'Bucket': bucket,
+            'Name': upname
+           
+        }
+    },
+    MinConfidence=90,
+    )
+    y = json.dumps(response)
+    return(y)
+
+@app.route('/polly', methods=['POST'])
+def polly():
+    po=boto3.client("polly")
+    upname=request.form.get("speech")
+    now = datetime.now()
+    filename= now.strftime("%f")
+    filename=filename+".mp3"
+    res=po.synthesize_speech(Text=upname,OutputFormat="mp3",VoiceId='Aditi')
+    file=open(filename,'wb')
+    file.write(res['AudioStream'].read())
+    file.close()
+    playsound(filename)
+
+    return("Audio Saved")
+
+
+@app.route('/comprehendsyn', methods=['POST'])
+def comprehend():
+    client = boto3.client('comprehend')
+    upname=request.form.get("speech")
+    response = client.batch_detect_syntax(
+    TextList=[
+        upname,
+    ],
+    LanguageCode='en'
+    )
+    return(response)
+
+
+@app.route('/comprehendsen', methods=['POST'])
+def comprehendsen():
+    client = boto3.client('comprehend')
+    upname=request.form.get("speech")
+    response = client.batch_detect_sentiment(
+    TextList=[
+        upname,
+    ],
+    LanguageCode='en'
+    )
+    return(response)
+
+@app.route('/comprehendphrases', methods=['POST'])
+def comprehendphrases():
+    client = boto3.client('comprehend')
+    upname=request.form.get("speech")
+    response = client.batch_detect_key_phrases(
+    TextList=[
+        upname,
+    ],
+    LanguageCode='en'
+    )
+    return(response)
+
+
+@app.route('/comprehendentities', methods=['POST'])
+def comprehendentities():
+    client = boto3.client('comprehend')
+    upname=request.form.get("speech")
+    response = client.batch_detect_entities(
+    TextList=[
+        upname,
+    ],
+    LanguageCode='en'
+    )
+    return(response)
+
+
+    return response
+
+
+
+@app.route('/translate', methods=['POST'])
+def translate():
+    client = boto3.client('translate')
+    upname=request.form.get("speech")
+    source=request.form.get("source")
+    target=request.form.get("target")
+
+    response = client.translate_text(
+    Text=upname,
+    
+    SourceLanguageCode=source,
+    TargetLanguageCode=target
+    )
+    return(response)
 
 if __name__ == '__main__':
         app.run(debug= True)
