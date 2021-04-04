@@ -1,17 +1,4 @@
 
-
-Skip to content
-Using Gmail with screen readers
-Meet
-New meeting
-Join a meeting
-Hangouts
-
-Conversations
-7.02 GB of 15 GB used
-Terms · Privacy · Program Policies
-Last account activity: 0 minutes ago
-Open in 1 other location · Details
 #!/usr/bin/python3
 
 import cgi
@@ -68,66 +55,67 @@ y29=x.getvalue("comma")
 if y28 is not None and y29 is not None:
   cmd="sudo docker exec {} {}".format(y28,y29)
   y=subprocess.getoutput(cmd)
-  print(y)
+  print("<pre>{}</pre>".format(y))
 
 
 
 if y27 is not None:
   cmd="sudo docker logs {}".format(y27)
   y=subprocess.getoutput(cmd)
-  print(y)
+  print("<pre>{}</pre>".format(y))
   
 if y26 is not None:
   cmd="sudo docker inspect {}".format(y26)
   y=subprocess.getoutput(cmd)
-  print(y)
+  print("<pre>{}</pre>".format(y))
 
 if y21 is not None and y23 is not None:
   cmd="sudo docker commit {} {}:{}".format(y21,y22,y23)
   y=subprocess.getoutput(cmd)
-  print(y)
+  print("<pre>{}</pre>".format(y))
 
 if y24 is not None and y25 is not None:
   cmd="sudo docker push {}:{}".format(y24,y25)
   y=subprocess.getoutput(cmd)
-  print(y)
+  print("<pre>{}</pre>".format(y))
 
 
 
 if cmd is not None:
   cmd="sudo {}".format(cmd)
   y=subprocess.getoutput(cmd)
-  print(y)
+  print("<pre>{}</pre>".format(y))
 
 if y1 is not None:
   cmd="sudo docker ps -a"
   y=subprocess.getoutput(cmd)
-  print(y)
+  print("<pre>{}</pre>".format(y))
 
 if y2 is not None:
   cmd="sudo docker ps"
   y=subprocess.getoutput(cmd)
-  print(y)
+  print("<pre>{}</pre>".format(y))
 
 if y3 is not None:
   cmd="sudo docker images"
   y=subprocess.getoutput(cmd)
-  print(y)
+  print("<pre>{}</pre>".format(y))
 
 if y4 is not None:
   cmd="sudo docker network inspect"
   y=subprocess.getoutput(cmd)
-  print(y)
+  print("<pre>{}</pre>".format(y))
 
 if y5 is not None:
   cmd="sudo docker network ls"
   y=os.system(cmd)
-  print(y)
+  print("<pre>{}</pre>".format(y))
 
 if y20 is not None:
   cmd="sudo docker container rm -f $(docker container ls -a -q)"
   y=subprocess.getoutput(cmd)
-  print(y)
+    print("<pre>{}</pre>".format(y))
+
 
 
 if y6 is not None and y7 is not None: 
@@ -135,16 +123,18 @@ if y6 is not None and y7 is not None:
     if y10 is not None and y11 is not None:
       cmd="sudo docker run -dit --name {} -v {}:{} -p {}:{} {}".format(y6,y9,y8,y11,y10,y7)
       y=subprocess.getoutput(cmd)
-      print(y)
+      print("<pre>{}</pre>".format(y))
     
     else:
       cmd="sudo docker run -dit --name {} -p {}:{} {}".format(y6,y9,y8,y7)
        y=subprocess.getoutput(cmd)
-       print(y)
+       print("<pre>{}</pre>".format(y))
+
   else:
     cmd="sudo docker run -dit --name {} {}".format(y6,y7)
     y=subprocess.getoutput(cmd)
-    print(y)
+    print("<pre>{}</pre>".format(y))
+
 else:
   pass
 
@@ -152,34 +142,34 @@ else:
 if y12 is not None:
   cmd="sudo docker container rm {}".format(y12)
   y=subprocess.getoutput(cmd)
-  print(y)
+  print("<pre>{}</pre>".format(y)))
   
 if y13 is not None:
   cmd="sudo docker image rm -f {}".format(y13)
   y=subprocess.getoutput(cmd)
-  print(y)
+  print("<pre>{}</pre>".format(y))
 
 if y14 is not None:
   cmd="sudo docker stop {}".format(y14)
   y=subprocess.getoutput(cmd)
-  print(y)
+  print("<pre>{}</pre>".format(y))
 
 if y15 is not None and y16 is not None:
    cmd="sudo docker pull {}:{}".format(y15,y16)
    y=subprocess.getoutput(cmd)
-   print(y)
+   print("<pre>{}</pre>".format(y))
 
 
 if y17 is not None:
   cmd="sudo docker start {}".format(y17)
   y=subprocess.getoutput(cmd)
-  print(y)
+  print("<pre>{}</pre>".format(y))
 
 
 if y18 is not None and y19 is not None:
   cmd="sudo docker image rmi {}:{} -f".format(y18,y19)
   y=subprocess.getoutput(cmd)
-  print(y)
+  print("<pre>{}</pre>".format(y))
 
 
 
