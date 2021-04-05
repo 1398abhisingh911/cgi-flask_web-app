@@ -5,7 +5,7 @@ import cv2
 import boto3
 from playsound import playsound
 from datetime import datetime
-
+import speech_recognition as sr
 import json
 
 
@@ -41,6 +41,11 @@ def ansible():
 @app.route("/linux")
 def linux():
     data=render_template("linux.html")
+    return data
+
+@app.route("/blog")
+def blog():
+    data=render_template("blog.html")
     return data
 
 @app.route("/ml")
@@ -216,6 +221,9 @@ def translate():
     TargetLanguageCode=target
     )
     return render_template("output.html",response=response)
+
+
+
 
 if __name__ == '__main__':
         app.run(debug= True)
