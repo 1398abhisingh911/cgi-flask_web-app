@@ -1,7 +1,7 @@
 body {
     background: #D0D8DB;
-    padding-top: 60px;
-    padding-bottom: 40px;
+    padding-top: 5px;
+    padding-bottom: 10px;
 }
 
 textarea {
@@ -118,8 +118,6 @@ textarea {
 }
 
 
-/* Design */
-
 *,
 *::before,
 *::after {
@@ -217,10 +215,19 @@ img {
     font-weight: 400;
 }
 
-p a:visited {
-    color: #000;
+a:link{
+    text-decoration: none;
+    color:rgb(0, 0, 88);
 }
 
-p a:hover {
+a:visited {
     color: rgb(63, 62, 146);
+}
+
+a:hover {
+    color:rgb(0, 0, 88);
+}
+
+a:active{
+    text-decoration: none;
 }
