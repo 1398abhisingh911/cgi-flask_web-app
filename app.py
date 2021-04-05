@@ -76,7 +76,7 @@ def rekognition():
     MinConfidence=90,
     )
     y = json.dumps(response)
-    return(y)
+    return render_template("output.html",response=y)
 
 
 @app.route('/facedetection', methods=['POST'])
@@ -106,7 +106,7 @@ def facedetection():
     ]
     )
     y = json.dumps(response)
-    return(y)
+    return render_template("output.html",response=y)
 
 
 @app.route('/contentmoderation', methods=['POST'])
@@ -132,7 +132,7 @@ def contentmoderation():
     MinConfidence=90,
     )
     y = json.dumps(response)
-    return(y)
+    return render_template("output.html",response=y)
 
 @app.route('/polly', methods=['POST'])
 def polly():
@@ -147,7 +147,7 @@ def polly():
     file.close()
     playsound(filename)
 
-    return("Audio Saved")
+    return render_template("output.html",response="Audio SAVED")
 
 
 @app.route('/comprehendsyn', methods=['POST'])
@@ -160,7 +160,7 @@ def comprehend():
     ],
     LanguageCode='en'
     )
-    return(response)
+    return render_template("output.html",response=response)
 
 
 @app.route('/comprehendsen', methods=['POST'])
@@ -173,7 +173,7 @@ def comprehendsen():
     ],
     LanguageCode='en'
     )
-    return(response)
+    return render_template("output.html",response=response)
 
 @app.route('/comprehendphrases', methods=['POST'])
 def comprehendphrases():
@@ -185,7 +185,7 @@ def comprehendphrases():
     ],
     LanguageCode='en'
     )
-    return(response)
+    return render_template("output.html",response=response)
 
 
 @app.route('/comprehendentities', methods=['POST'])
@@ -198,10 +198,7 @@ def comprehendentities():
     ],
     LanguageCode='en'
     )
-    return(response)
-
-
-    return response
+    return render_template("output.html",response=response)
 
 
 
@@ -214,12 +211,11 @@ def translate():
 
     response = client.translate_text(
     Text=upname,
-        
     
     SourceLanguageCode=source,
     TargetLanguageCode=target
     )
-    return(response)
+    return render_template("output.html",response=response)
 
 if __name__ == '__main__':
         app.run(debug= True)
