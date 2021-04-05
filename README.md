@@ -42,6 +42,8 @@ To run this project, do the following:
 	<br>
 	 <img src="/ss/ss6.png" width="350">
 	<br>
+	<img src="/ss/ss9.png" width="350">
+	<br>
 	<h3 style="position: absolute;left: 35%;">Translate Output</h3>
 	<img src="/ss/ss7.png" width="350">
 	<br>
