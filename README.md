@@ -40,10 +40,10 @@ To run this project, do the following:
 	<br>
 	 <img src="/ss/ss6.png" width="350">
 	<br>
-	<h3>Translate Output</h3>
+	<h3 style=style="position: absolute;left: 35%;">Translate Output</h3>
 	<img src="/ss/ss7.png" width="350">
 	<br>
-	<h3>Sentiment Analysis Output</h3>
+	<h3 style=style="position: absolute;left: 35%;">Sentiment Analysis Output</h3>
 	<img src="/ss/ss8.png" width="350">
 	<br>
 </p>
