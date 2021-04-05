@@ -40,4 +40,6 @@ To run this project, do the following:
 	<br>
 	 <img src="/ss/ss6.png" width="350">
 	<br>
+	<img src="/ss/ss7.png" width="350">
+	<br>
 </p>
