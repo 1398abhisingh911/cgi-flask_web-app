@@ -12,7 +12,7 @@ astunparse==1.6.3
 atomicwrites==1.3.0
 attrs==19.3.0
 Automat==20.2.0
-autopep8==1.4.4
+autopep8==1.5.6
 Babel==2.8.0
 backcall==0.1.0
 backports.functools-lru-cache==1.6.1
@@ -23,6 +23,7 @@ bcrypt==3.1.7
 beautifulsoup4==4.8.2
 bitarray==1.2.1
 bkcharts==0.2
+black==20.8b1
 bleach==3.1.0
 bokeh==1.4.0
 boto==2.49.0
@@ -34,7 +35,7 @@ cachetools==4.2.0
 certifi==2019.11.28
 cffi==1.14.0
 chardet==3.0.4
-Click==7.0
+click==7.1.2
 cloudpickle==1.3.0
 clyent==1.2.2
 colorama==0.4.3
@@ -87,6 +88,7 @@ imageio==2.6.1
 imagesize==1.2.0
 importlib-metadata==1.5.0
 incremental==17.5.0
+instaloader==4.7.1
 intervaltree==3.0.2
 ipykernel==5.1.4
 ipython==7.12.0
@@ -128,9 +130,11 @@ mkl-random==1.1.0
 mkl-service==2.3.0
 mock==4.0.1
 more-itertools==8.2.0
+MouseInfo==0.1.3
 mpmath==1.1.0
 msgpack==0.6.1
 multipledispatch==0.6.0
+mypy-extensions==0.4.3
 navigator-updater==0.2.1
 nbconvert==5.6.1
 nbformat==5.0.4
@@ -155,6 +159,7 @@ parso==0.5.2
 partd==1.1.0
 path==13.1.0
 pathlib2==2.3.5
+pathspec==0.8.1
 pathtools==0.1.2
 patsy==0.5.1
 pep8==1.7.1
@@ -174,7 +179,8 @@ py==1.8.1
 pyasn1==0.4.8
 pyasn1-modules==0.2.8
 PyAudio==0.2.11
-pycodestyle==2.5.0
+PyAutoGUI==0.9.52
+pycodestyle==2.7.0
 pycosat==0.6.3
 pycparser==2.19
 pycrypto==2.6.1
@@ -182,16 +188,21 @@ pycurl==7.43.0.5
 PyDispatcher==2.0.5
 pydocstyle==4.0.1
 pyflakes==2.1.1
+PyGetWindow==0.0.9
 Pygments==2.5.2
 PyHamcrest==2.0.2
 pylint==2.4.4
+PyMsgBox==1.0.9
 PyNaCl==1.3.0
 pyodbc===4.0.0-unsupported
 pyOpenSSL==19.1.0
 pyparsing==2.4.6
+pyperclip==1.8.2
 pyquery==1.4.3
 pyreadline==2.1
+PyRect==0.1.4
 pyrsistent==0.15.7
+PyScreeze==0.1.26
 PySocks==1.7.1
 pytest==5.3.5
 pytest-arraydiff==0.3
@@ -203,8 +214,11 @@ pytest-remotedata==0.3.2
 python-dateutil==2.8.1
 python-jsonrpc-server==0.3.4
 python-language-server==0.31.7
+pytube==10.7.1
+PyTweening==1.0.3
 pytz==2019.3
 PyWavelets==1.1.1
+pywhatkit==4.1
 pywin32==227
 pywin32-ctypes==0.2.0
 pywinpty==0.5.7
@@ -214,6 +228,7 @@ QDarkStyle==2.8
 QtAwesome==0.6.1
 qtconsole==4.6.0
 QtPy==1.9.0
+regex==2021.4.4
 requests==2.22.0
 requests-oauthlib==1.3.0
 rope==0.16.0
@@ -256,10 +271,12 @@ tensorflow-estimator==2.4.0
 termcolor==1.1.0
 terminado==0.8.3
 testpath==0.4.4
+toml==0.10.2
 toolz==0.10.0
 tornado==6.0.3
 tqdm==4.42.1
 traitlets==4.3.3
+typed-ast==1.4.3
 typing-extensions==3.7.4.3
 ujson==1.35
 unicodecsv==0.14.1
@@ -270,6 +287,7 @@ wcwidth==0.1.8
 webencodings==0.5.1
 Werkzeug==1.0.0
 widgetsnbextension==3.5.1
+wikipedia==1.4.0
 win-inet-pton==1.1.0
 win-unicode-console==0.5
 wincertstore==0.2
