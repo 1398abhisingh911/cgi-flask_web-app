@@ -50,4 +50,7 @@ To run this project, do the following:
 	<h3 style="position: absolute;left: 35%;">Sentiment Analysis Output</h3>
 	<img src="/ss/ss8.png" width="350">
 	<br>
+	<h3 style="position: absolute;left: 35%;">Text to Handwriting</h3>
+	<img src="/ss/hand.png" width="350">
+	<br>
 </p>
