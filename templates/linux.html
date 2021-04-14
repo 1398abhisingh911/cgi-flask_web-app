@@ -51,6 +51,20 @@
             <label for="vehicle2"> Get Calendar</label><br>
             <input type="checkbox" id="vehicle2" name="linux3" value="c">
             <label for="vehicle2"> Get Running Status</label><br>
+            <input type="checkbox" id="vehicle2" name="linux4" value="d">
+            <label for="vehicle2"> Get Current tty</label><br>
+            <input type="checkbox" id="vehicle2" name="linux5" value="e">
+            <label for="vehicle2"> Get route table </label><br>
+            <input type="checkbox" id="vehicle2" name="linux6" value="f">
+            <label for="vehicle2"> Disable Selinux</label><br>
+            <input type="checkbox" id="vehicle2" name="linux7" value="g">
+            <label for="vehicle2"> Enable Selinux</label><br>
+            <input type="checkbox" id="vehicle2" name="linux8" value="h">
+            <label for="vehicle2"> Get partition table</label><br>
+            <input type="checkbox" id="vehicle2" name="linux9" value="i">
+            <label for="vehicle2">Get Chrony Sources</label><br>
+            <input type="checkbox" id="vehicle2" name="linux10" value="j">
+            <label for="vehicle2">Get Users and their groups</label><br>
 
             <br>
             <button type="submit" class="btn btn-primary">Submit</button>
@@ -63,9 +77,358 @@
 
             <input type="text" name="ip" class="form-control" id="ip" placeholder="IP">
             <br>
+            <input type="text" name="pn5" class="form-control" id="ip" placeholder="Enter complete domain name to get DNS record">
+            <br>
             <button type="submit" class="btn btn-primary">Submit</button>
     </form>
+    <br>
+    <br>
 
+    <form action='http://192.168.43.170/cgi-bin/linux.py'>
+        <div class="form-group">
+            <h1 style="color: aliceblue;">Process related Commands</h1>
+
+            <input type="text" name="pn1" class="form-control" id="ip" placeholder="Process name to run in background">
+            <br>
+            <input type="text" name="pn2" class="form-control" id="ip" placeholder="Get manual of command">
+            <br>
+            <input type="text" name="pn3" class="form-control" id="ip" placeholder="Type something to list jobs running in bg">
+            <br>
+            <input type="text" name="pn4" class="form-control" id="ip" placeholder="Enter PID to kill">
+            <br>
+
+
+            <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+    <br>
+    <br>
+
+
+    <form action='http://192.168.43.170/cgi-bin/linux.py'>
+        <div class="form-group">
+            <h1 style="color: aliceblue;">User Management</h1>
+
+            <input type="text" name="pn6" class="form-control" id="ip" placeholder="Enter username">
+            <br>
+            <input type="password" name="pn7" class="form-control" id="ip" placeholder="Enter password">
+            <br>
+
+            <input type="text" name="pn8" class="form-control" id="ip" placeholder="Enter username to get ID">
+            <br>
+
+
+            <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+    <br>
+    <br>
+    <form action='http://192.168.43.170/cgi-bin/linux.py'>
+        <div class="form-group">
+            <h1 style="color: aliceblue;">File Management</h1>
+
+            <input type="text" name="pn9" class="form-control" id="ip" placeholder="Enter absolute directory to list files">
+            <br>
+            <input type="text" name="pn10" class="form-control" id="ip" placeholder="Enter absolute directory to Change directory ">
+            <br>
+            <input type="text" name="pn11" class="form-control" id="ip" placeholder="Enter content to overwrite ">
+            <br>
+            <input type="text" name="pn12" class="form-control" id="ip" placeholder="Enter content to append to a file">
+            <br>
+            <input type="text" name="pn13" class="form-control" id="ip" placeholder="Enter absolute path of file to do anyone of above two options ">
+            <br>
+            <input type="text" name="pn14" class="form-control" id="ip" placeholder="Enter absolute path of file1 append ">
+            <br>
+            <input type="text" name="pn15" class="form-control" id="ip" placeholder="Enter absolute path of file2 to append to">
+            <br>
+
+            <input type="text" name="pn23" class="form-control" id="ip" placeholder="Enter filename to count lines,words and char">
+            <br>
+            <input type="text" name="pn40" class="form-control" id="ip" placeholder="Enter directory to remove">
+            <br>
+            <input type="text" name="pn41" class="form-control" id="ip" placeholder="Enter source directory to copy">
+            <br>
+            <input type="text" name="pn42" class="form-control" id="ip" placeholder="Enter dest directory to copy">
+            <br>
+
+            <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+    <br>
+    <br>
+
+    <form action='http://192.168.43.170/cgi-bin/linux.py'>
+        <div class="form-group">
+            <h1 style="color: aliceblue;">Package Management</h1>
+
+            <input type="text" name="pn16" class="form-control" id="ip" placeholder="Enter software name to check if it's installed or not">
+            <br>
+            <input type="text" name="pn17" class="form-control" id="ip" placeholder="Enter software name to remove">
+            <br>
+
+            <input type="text" name="pn18" class="form-control" id="ip" placeholder="Enter software  name to install">
+            <br>
+            <input type="text" name="pn19" class="form-control" id="ip" placeholder="Enter software  name like coreutils for detailed info">
+            <br>
+            <input type="text" name="pn20" class="form-control" id="ip" placeholder="Enter command name to get the file running it">
+            <br>
+            <input type="text" name="pn21" class="form-control" id="ip" placeholder="Enter above file to ge what rpm responsible for it">
+            <br>
+
+
+            <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+    <br>
+    <br>
+
+
+    <form action='http://192.168.43.170/cgi-bin/linux.py'>
+        <div class="form-group">
+            <h1 style="color: aliceblue;">Status Management</h1>
+
+            <input type="text" name="pn22" class="form-control" id="ip" placeholder="Enter command name to see if it works fine or not">
+            <br>
+            <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+    <br>
+    <br>
+
+
+
+
+    <form action='http://192.168.43.170/cgi-bin/linux.py'>
+        <div class="form-group">
+            <h1 style="color: aliceblue;">Searching</h1>
+
+            <input type="text" name="pn24" class="form-control" id="ip" placeholder="Enter word to search in file">
+            <br>
+            <input type="text" name="pn25" class="form-control" id="ip" placeholder="Enter filename for normal searching">
+            <br>
+            <input type="text" name="pn26" class="form-control" id="ip" placeholder="Enter filename for line number searching">
+            <br>
+
+            <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+    <br>
+    <br>
+
+    <form action='http://192.168.43.170/cgi-bin/linux.py'>
+        <div class="form-group">
+            <h1 style="color: aliceblue;">Remote Execution</h1>
+
+            <input type="password" name="pn27" class="form-control" id="ip" placeholder="Enter password for Remote server">
+            <br>
+            <input type="text" name="pn28" class="form-control" id="ip" placeholder="Enter IP for Remote server">
+            <br>
+            <input type="text" name="pn29" class="form-control" id="ip" placeholder="Enter CMND to run">
+            <br>
+
+            <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+    <br>
+    <br>
+
+
+    <form action='http://192.168.43.170/cgi-bin/linux.py'>
+        <div class="form-group">
+            <h1 style="color: aliceblue;">Remote Copy from Local</h1>
+
+            <input type="password" name="pn30" class="form-control" id="ip" placeholder="Enter password for Remote server">
+            <br>
+            <input type="text" name="pn31" class="form-control" id="ip" placeholder="Enter IP for Remote server">
+            <br>
+            <input type="text" name="pn32" class="form-control" id="ip" placeholder="Enter filename">
+            <br>
+            <input type="text" name="pn33" class="form-control" id="ip" placeholder="Enter destination in remote">
+            <br>
+            <input type="text" name="pn39" class="form-control" id="ip" placeholder="Enter folder in local(only if folder)">
+            <br>
+            <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+    <br>
+    <br>
+    <form action='http://192.168.43.170/cgi-bin/linux.py'>
+        <div class="form-group">
+            <h1 style="color: aliceblue;">Copy from Remote</h1>
+
+            <input type="password" name="pn34" class="form-control" id="ip" placeholder="Enter password for Remote server">
+            <br>
+            <input type="text" name="pn35" class="form-control" id="ip" placeholder="Enter IP for Remote server">
+            <br>
+            <input type="text" name="pn36" class="form-control" id="ip" placeholder="Enter path of file in remote ">
+            <br>
+            <input type="text" name="pn37" class="form-control" id="ip" placeholder="Enter destination in local">
+            <br>
+            <input type="text" name="pn38" class="form-control" id="ip" placeholder="Enter folder path in remote(only directory)">
+            <br>
+
+            <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+    <br>
+    <br>
+
+    <form action='http://192.168.43.170/cgi-bin/linux.py'>
+        <div class="form-group">
+            <h1 style="color: aliceblue;">Partition related</h1>
+
+            <input type="text" name="pn40" class="form-control" id="ip" placeholder="Enter partition name for partition table(/dev/sda)">
+            <br>
+
+            <input type="text" name="pn41" class="form-control" id="ip" placeholder="Enter patition name for mkfs.ext4 format(/dev/sda1)">
+            <br>
+            <input type="text" name="pn42" class="form-control" id="ip" placeholder="Enter partition name to mount">
+            <br>
+
+
+            <input type="text" name="pn43" class="form-control" id="ip" placeholder="Enter folder name to mount to">
+            <br>
+            <input type="text" name="pn44" class="form-control" id="ip" placeholder="Enter mountpath to unmount">
+            <br>
+
+
+            <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+    <br>
+    <br>
+
+
+
+    <form action='http://192.168.43.170/cgi-bin/linux.py'>
+        <div class="form-group">
+            <h1 style="color: aliceblue;">LVM AUTOMATION</h1>
+
+            <input type="text" name="pn45" class="form-control" id="ip" placeholder="Enter Physical Volume name for PV Creation(/dev/sda)">
+            <br>
+
+            <input type="text" name="pn46" class="form-control" id="ip" placeholder="Enter PV name to display(/dev/sda)">
+            <br>
+            <input type="text" name="pn47" class="form-control" id="ip" placeholder="Enter VG name to create(iiec)">
+            <br>
+
+            <input type="text" name="pn48" class="form-control" id="ip" placeholder="Enter PV1 name for VG(/dev/sda)">
+            <br>
+
+            <input type="text" name="pn49" class="form-control" id="ip" placeholder="Enter PV2 name for VG(/dev/sdb)">
+            <br>
+
+
+            <input type="text" name="pn50" class="form-control" id="ip" placeholder="Enter size of LV(50G)">
+            <br>
+            <input type="text" name="pn51" class="form-control" id="ip" placeholder="Enter LV name you desire(mylv1)">
+            <br>
+
+            <input type="text" name="pn52" class="form-control" id="ip" placeholder="Enter VG name you created(iiecvg)">
+            <br>
+
+            <input type="text" name="pn53" class="form-control" id="ip" placeholder="Enter LV name to display(/iiecvg/mylv1)">
+            <br>
+            <input type="text" name="pn54" class="form-control" id="ip" placeholder="Enter VG name to display(iiec)">
+            <br>
+            <input type="text" name="pn55" class="form-control" id="ip" placeholder="Enter patition name for mkfs.ext4 format(/dev/iiecvg/mylv1)">
+            <br>
+            <input type="text" name="pn56" class="form-control" id="ip" placeholder="Enter partition name to mount(/dev/iiecvg/mylv1)">
+            <br>
+            <input type="text" name="pn57" class="form-control" id="ip" placeholder="Enter folder name to mount to">
+            <br>
+            <input type="text" name="pn58" class="form-control" id="ip" placeholder="Enter lv name to extend(/dev/iiecvg/mylv1)">
+            <br>
+            <input type="text" name="pn59" class="form-control" id="ip" placeholder="Enter extension size (+5G)">
+            <br>
+            <input type="text" name="pn60" class="form-control" id="ip" placeholder="Enter LV name to reformat extra(/dev/iiecvg/mylv1)">
+            <br>
+            <input type="text" name="pn61" class="form-control" id="ip" placeholder="Enter VG name to extend(iiecvg)">
+            <br>
+            <input type="text" name="pn62" class="form-control" id="ip" placeholder="Enter PV name to use for VG extension">
+            <br>
+            <input type="text" name="pn63" class="form-control" id="ip" placeholder="Enter mountpoint to unmount">
+            <br>
+            <input type="text" name="pn64" class="form-control" id="ip" placeholder="Enter LV name for e2fsck command">
+            <br>
+            <input type="text" name="pn65" class="form-control" id="ip" placeholder="Enter lv name to resize(/dev/iiecvg/mylv1)">
+            <br>
+            <input type="text" name="pn66" class="form-control" id="ip" placeholder="Enter size for resize command(50G)">
+            <br>
+            <input type="text" name="pn67" class="form-control" id="ip" placeholder="Enter lv name to reduce(/dev/iiecvg/mylv1)">
+            <br>
+            <input type="text" name="pn68" class="form-control" id="ip" placeholder="Enter reduction size (50G)">
+            <br>
+            <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+    <br>
+    <br>
+    <form action='http://192.168.43.170/cgi-bin/linux.py'>
+        <div class="form-group">
+            <h1 style="color: aliceblue;">Permissions</h1>
+
+            <input type="text" name="pn69" class="form-control" id="ip" placeholder="Enter username for finger command">
+            <br>
+            <input type="text" name="pn70" class="form-control" id="ip" placeholder="Enter username for UID">
+            <br>
+            <input type="text" name="pn71" class="form-control" id="ip" placeholder="Enter username for GID">
+            <br>
+            <input type="text" name="pn72" class="form-control" id="ip" placeholder="Enter permission to give(o+rwx)">
+            <br>
+            <input type="text" name="pn73" class="form-control" id="ip" placeholder="Enter file/folder to give permission">
+            <br>
+            <input type="text" name="pn74" class="form-control" id="ip" placeholder="Enter username to make owner">
+            <br>
+            <input type="text" name="pn75" class="form-control" id="ip" placeholder="Enter file whose owner you want to change">
+            <br>
+            <input type="text" name="pn76" class="form-control" id="ip" placeholder="Enter groupname to create">
+            <br>
+            <input type="text" name="pn77" class="form-control" id="ip" placeholder="Enter username to add to a group">
+            <br>
+            <input type="text" name="pn78" class="form-control" id="ip" placeholder="Enter groupname to add to">
+            <br>
+            <input type="text" name="pn79" class="form-control" id="ip" placeholder="Enter folder whose groupowner you want to change">
+            <br>
+            <input type="text" name="pn80" class="form-control" id="ip" placeholder="Enter groupname to make owner of the above folder">
+            <br>
+
+            <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+    <br>
+    <br>
+    <h1>Extras</h1>
+    <br>
+    <form action="{{ url_for('youtubedown') }}" method="post">
+        <div class="form-group">
+            <h1 style="color: aliceblue;">Download YOUTUBE VIDEO</h1>
+            <input type="text" name="link" class="form-control" id="cmd" placeholder="Enter link of video">
+            <br>
+
+        </div>
+        <button type="submit" class="btn btn-primary">Download</button>
+    </form>
+    <br>
+    <br>
+
+    <form action="{{ url_for('text') }}" method="post">
+        <div class="form-group">
+            <h1 style="color: aliceblue;">Text to Handwriting</h1>
+            <input type="text" name="tex" class="form-control" id="cmd" placeholder="Enter text to convert">
+            <br>
+
+        </div>
+        <button type="submit" class="btn btn-primary">Save</button>
+    </form>
+    <br>
+    <br>
+
+    <form action="{{ url_for('watsapp') }}" method="post">
+        <div class="form-group">
+            <h1 style="color: aliceblue;">Send Watsapp Msg</h1>
+            <input type="text" name="msg" class="form-control" id="cmd" placeholder="Enter msg">
+            <br>
+            <input type="text" name="mob" class="form-control" id="cmd" placeholder="Enter mobile number">
+            <br>
+            <input type="text" name="hr" class="form-control" id="cmd" placeholder="Time in Hour">
+            <br>
+            <input type="text" name="min" class="form-control" id="cmd" placeholder="Time in Min">
+            <br>
+
+        </div>
+        <button type="submit" class="btn btn-primary">Send</button>
+    </form>
+    <br>
+    <br>
 </body>
 
 </html>
